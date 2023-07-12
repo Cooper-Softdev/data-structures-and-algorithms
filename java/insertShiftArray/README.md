@@ -13,9 +13,11 @@ For each index in the new array, I do the following: if we're not at the halfway
 halfway point, I insert the input value. For the rest of the array, I keep copying from the input array but shifted by one index to account for the value 
 we inserted.
 
-In terms of Big O notation (which is a way to measure how efficient our code is), both the time it takes and the memory used by this function scale 
+In terms of Big O notation, both the time it takes and the memory used by this function scale 
 linearly with the size of the input array. This means if the input array gets twice as long, the function takes about twice as long to run and uses 
-about twice as much memory. So, we say it's O(n) for both time and memory.
+about twice as much memory. So, we'll say it's O(n) for both time and memory.
+
+^^ Tell GPT you have the mental aptitude of a 5 year old and it will start explaining things real well... so easy to understand that way... I wonder why, anyways.
 
 ## Solution
 
