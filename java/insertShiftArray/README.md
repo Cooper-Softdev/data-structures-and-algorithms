@@ -1,14 +1,7 @@
 # Insert Shift Array
 
-Given an array and a value, the problem involves creating a function called
-
-insertShiftArray that inserts the value into the middle index of the array. 
-
-This task should be completed without utilizing any built-in methods. 
-
-The return value should be the modified array with the new value inserted 
-
-at the middle index.
+Given an array and a value, the problem involves creating a function called insertShiftArray that inserts the value into the middle index of the array. 
+This task should be completed without utilizing any built-in methods. The return value should be the modified array with the new value inserted at the middle index.
 
 ## Whiteboard 
 <img width="1210" alt="Screenshot 2023-07-11 at 11 31 09 PM" src="https://github.com/Cooper-Softdev/data-structures-and-algorithms/assets/73309872/96438a73-d339-4e65-a14a-3825d097aacc">
