@@ -41,11 +41,11 @@ The solution involves creating a new node and updating the head pointer for the 
 <a name="link-to-code"></a>
 ## Link to Code
 
-[LinkedList.java](java/datastructures/lib/src/main/java/datastructures/linkedlist/LinkedList.java)
+[LinkedList.java]([java/datastructures/lib/src/main/java/datastructures/linkedlist/LinkedList.java](https://github.com/Cooper-Softdev/data-structures-and-algorithms/blob/2662c3056014ca90b307ad659461415aab5d00fa/java/datastructures/lib/src/main/java/datastructures/linkedlist/LinkedList.java))
 
-[Node.java](java/datastructures/lib/src/main/java/datastructures/linkedlist/Node.java)
+[Node.java]([java/datastructures/lib/src/main/java/datastructures/linkedlist/Node.java](https://github.com/Cooper-Softdev/data-structures-and-algorithms/blob/af5ef2c93c81adccf55166552a114cc3d3d73d9e/java/datastructures/lib/src/main/java/datastructures/linkedlist/Node.java))
 
-[LinkedListTest.java](java/datastructures/lib/src/test/java/datastructures/linkedlist/LinkedListTest.java)
+[LinkedListTest.java]([java/datastructures/lib/src/test/java/datastructures/linkedlist/LinkedListTest.java](https://github.com/Cooper-Softdev/data-structures-and-algorithms/blob/af5ef2c93c81adccf55166552a114cc3d3d73d9e/java/datastructures/lib/src/test/java/datastructures/linkedlist/LinkedListTest.java))
 
 <a name="feature-tasks"></a>
 ## Feature Tasks
