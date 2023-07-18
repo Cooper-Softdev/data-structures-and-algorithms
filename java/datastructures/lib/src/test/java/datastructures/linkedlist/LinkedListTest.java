@@ -77,4 +77,38 @@ class LinkedListTest {
     String expectedString = "{ " + randomValue3 + " } -> { " + randomValue2 + " } -> { " + randomValue1 + " } -> null";
     assertEquals(expectedString, list.toString());
   }
+
+  @Test
+  void testAppend() {
+    LinkedList list = new LinkedList();
+    int randomValue1 = rand.nextInt(20) + 1;
+    int randomValue2 = rand.nextInt(20) + 1;
+    list.insertValueAtHead(randomValue1);
+    list.append(randomValue2);
+    assertEquals(randomValue2, list.headNode.nextNode.nodeValue);
+  }
+
+  @Test
+  void testInsertBefore() {
+    LinkedList list = new LinkedList();
+    int randomValue1 = rand.nextInt(20) + 1;
+    int randomValue2 = rand.nextInt(20) + 1;
+    int randomValue3 = rand.nextInt(20) + 1;
+    list.insertValueAtHead(randomValue1);
+    list.append(randomValue2);
+    list.insertBefore(randomValue2, randomValue3);
+    assertEquals(randomValue3, list.headNode.nextNode.nodeValue);
+  }
+
+  @Test
+  void testInsertAfter() {
+    LinkedList list = new LinkedList();
+    int randomValue1 = rand.nextInt(20) + 1;
+    int randomValue2 = rand.nextInt(20) + 1;
+    int randomValue3 = rand.nextInt(20) + 1;
+    list.insertValueAtHead(randomValue1);
+    list.append(randomValue2);
+    list.insertAfter(randomValue1, randomValue3);
+    assertEquals(randomValue3, list.headNode.nextNode.nodeValue);
+  }
 }

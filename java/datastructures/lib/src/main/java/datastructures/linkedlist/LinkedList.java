@@ -8,7 +8,49 @@ public class LinkedList {
     newNode.nextNode = headNode;
     this.headNode = newNode;
   }
+  public void append(int valueToAppend) {
+    Node newNode = new Node(valueToAppend);
+    if (headNode == null) {
+      headNode = newNode;
+    } else {
+      Node currentNode = headNode;
+      while (currentNode.nextNode != null) {
+        currentNode = currentNode.nextNode;
+      }
+      currentNode.nextNode = newNode;
+    }
+  }
 
+  public void insertBefore(int valueToFind, int valueToInsert) {
+    if (headNode == null) {
+      return;
+    }
+    if (headNode.nodeValue == valueToFind) {
+      insertValueAtHead(valueToInsert);
+      return;
+    }
+    Node currentNode = headNode;
+    while (currentNode.nextNode != null && currentNode.nextNode.nodeValue != valueToFind) {
+      currentNode = currentNode.nextNode;
+    }
+    if (currentNode.nextNode != null) {
+      Node newNode = new Node(valueToInsert);
+      newNode.nextNode = currentNode.nextNode;
+      currentNode.nextNode = newNode;
+    }
+  }
+
+  public void insertAfter(int valueToFind, int valueToInsert) {
+    Node currentNode = headNode;
+    while (currentNode != null && currentNode.nodeValue != valueToFind) {
+      currentNode = currentNode.nextNode;
+    }
+    if (currentNode != null) {
+      Node newNode = new Node(valueToInsert);
+      newNode.nextNode = currentNode.nextNode;
+      currentNode.nextNode = newNode;
+    }
+  }
   public boolean listIncludesValue(int valueToFind) {
     Node currentNode = this.headNode;
     while (currentNode != null) {
@@ -34,4 +76,3 @@ public class LinkedList {
     return listAsString.toString();
   }
 }
-
