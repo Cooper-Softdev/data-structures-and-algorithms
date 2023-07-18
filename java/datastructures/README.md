@@ -68,3 +68,25 @@ The solution involves creating a new node and updating the head pointer for the 
 - [x] Will return false when searching for a value in the linked list that does not exist
 - [x] Can properly return a collection of all the values that exist in the linked list
 
+# Linked List Insertions
+
+## Summary
+This project extends the linked list to include methods for appending a node to the end of the list, and inserting a node before or after a given node in the list.
+
+## Description
+The `LinkedList` class must now include methods for appending a node to the end of the list (`append`), inserting a node before a given node (`insertBefore`), and inserting a node after a given node (`insertAfter`).
+
+## Approach & Efficiency
+The `append` method iterates through the list until it finds the last node, then sets the `nextNode` reference of the last node to the new node.
+
+The `insertBefore` and `insertAfter` methods iterate through the list until they find the node with the given value. For `insertBefore`, the new node is then inserted before the found node by updating the `nextNode` reference of the previous node and the new node. For `insertAfter`, the new node is inserted after the found node by updating the `nextNode` reference of the found node and the new node.
+
+## Feature Tasks
+- [x] `append` method implemented
+- [x] `insertBefore` method implemented
+- [x] `insertAfter` method implemented
+
+## Unit Tests
+- [x] "Happy Path" tests for `append`, `insertBefore`, and `insertAfter` methods
+- [x] Edge case tests for `insertBefore` and `insertAfter` methods when the value to insert before/after is at the start or end of the list
+I haven't written failure tests, I'm still barely wrapping my head around the test. It seems to obvious but writing it to fail is tripping me up.
