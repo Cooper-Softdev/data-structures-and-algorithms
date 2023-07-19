@@ -62,26 +62,24 @@ public class LinkedList {
     return false;
   }
 
-  public int kthFromEnd(int k) {
-    // place pole position 1 (p1) and p2 into headNode
+  public int getKthValueFromEnd(int k) {
+    if (k < 0) {
+      throw new IllegalArgumentException("k must be a non-negative integer");
+    }
     Node p1 = headNode;
     Node p2 = headNode;
-    // p1 iterates the list
     int i = 0;
-    while (i < k) {
+    while (i <= k) {
       if (p1 == null) {
-        throw new IllegalArgumentException("k is larger than the list");
+        return -1;
       }
       p1 = p1.nextNode;
-      i++
+      i++;
     }
-    // p2 follows p1 until p1 reaches the end of the list if applicable
     while (p1 != null) {
       p1 = p1.nextNode;
       p2 = p2.nextNode;
     }
-
-    // If node k is found, p2 is now the kth from the end
     return p2.nodeValue;
   }
 
