@@ -111,4 +111,61 @@ class LinkedListTest {
     list.insertAfter(randomValue1, randomValue3);
     assertEquals(randomValue3, list.headNode.nextNode.nodeValue);
   }
+
+  @Test
+  void ValueFromEnd() {
+    LinkedList list = new LinkedList();
+    int randomValue1 = rand.nextInt(20) + 1;
+    int randomValue2 = rand.nextInt(20) + 1;
+    int randomValue3 = rand.nextInt(20) + 1;
+    int randomValue4 = rand.nextInt(20) + 1;
+    list.insertValueAtHead(randomValue1);
+    list.insertValueAtHead(randomValue2);
+    list.insertValueAtHead(randomValue3);
+    list.insertValueAtHead(randomValue4);
+    assertEquals(randomValue1, list.getKthValueFromEnd(0));
+    assertEquals(randomValue3, list.getKthValueFromEnd(2));
+  }
+
+  @Test
+  void withSizeOne() {
+    LinkedList list = new LinkedList();
+    list.insertValueAtHead(5);
+    assertEquals(5, list.getKthValueFromEnd(0));
+    assertEquals(-1, list.getKthValueFromEnd(1));
+  }
+
+  @Test
+  void happyPath() {
+    LinkedList list = new LinkedList();
+    list.insertValueAtHead(1);
+    list.insertValueAtHead(2);
+    list.insertValueAtHead(3);
+    list.insertValueAtHead(4);
+    assertEquals(3, list.getKthValueFromEnd(2));
+  }
+
+  @Test
+  void kIsGreaterThanLength() {
+    LinkedList list = new LinkedList();
+    list.insertValueAtHead(5);
+    assertEquals(-1, list.getKthValueFromEnd(2));
+  }
+
+  @Test
+  void kIsSameAsLength() {
+    LinkedList list = new LinkedList();
+    list.insertValueAtHead(1);
+    list.insertValueAtHead(2);
+    list.insertValueAtHead(3);
+    assertEquals(-1, list.getKthValueFromEnd(3));
+  }
+
+  @Test
+  void kIsNotPositive() {
+    LinkedList list = new LinkedList();
+    list.insertValueAtHead(5);
+    assertThrows(IllegalArgumentException.class, () -> list.getKthValueFromEnd(-1));
+  }
+
 }

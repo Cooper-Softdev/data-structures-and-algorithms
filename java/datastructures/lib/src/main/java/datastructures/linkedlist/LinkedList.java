@@ -62,6 +62,27 @@ public class LinkedList {
     return false;
   }
 
+  public int getKthValueFromEnd(int k) {
+    if (k < 0) {
+      throw new IllegalArgumentException("k must be a non-negative integer");
+    }
+    Node p1 = headNode;
+    Node p2 = headNode;
+    int i = 0;
+    while (i <= k) {
+      if (p1 == null) {
+        return -1;
+      }
+      p1 = p1.nextNode;
+      i++;
+    }
+    while (p1 != null) {
+      p1 = p1.nextNode;
+      p2 = p2.nextNode;
+    }
+    return p2.nodeValue;
+  }
+
   @Override
   public String toString() {
     StringBuilder listAsString = new StringBuilder();
