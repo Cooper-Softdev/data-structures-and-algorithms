@@ -16,3 +16,36 @@ scales linearly with the size of our queue. So, the bigger the queue, the longer
 ## Whiteboard
 
 <img width="1155" alt="Screenshot 2023-07-25 at 8 39 01 AM" src="https://github.com/Cooper-Softdev/data-structures-and-algorithms/assets/73309872/0901783b-b4d3-4e4a-a7bb-431d166bb6ab">
+
+## Solution code
+
+``` Java
+public class PseudoQueue<T> {
+    Stack<T> stackOne;
+    Stack<T> stackTwo;
+
+    public void enqueue(T value) {
+        if (stackOne == null) {
+            stackOne = new Stack<>();
+        }
+        stackOne.push(value);
+    }
+
+    public T dequeue() {
+        if (stackOne.isEmpty() || stackOne == null) {
+            throw new IllegalStateException("PseudoQueue is empty.  Can not dequeue.");
+        }
+        if (stackTwo == null) {
+            stackTwo = new Stack<>();
+        }
+        while (!stackOne.isEmpty()) {
+            stackTwo.push(stackOne.pop());
+        }
+        T dequeueVal = stackTwo.pop();
+        while (!stackTwo.isEmpty()) {
+            stackOne.push(stackTwo.pop());
+        }
+        return dequeueVal;
+    }
+}
+```
