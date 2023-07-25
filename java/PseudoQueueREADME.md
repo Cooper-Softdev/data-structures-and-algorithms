@@ -20,6 +20,7 @@ scales linearly with the size of our queue. So, the bigger the queue, the longer
 ## Solution code
 
 ``` Java
+
 public class PseudoQueue<T> {
     Stack<T> stackOne;
     Stack<T> stackTwo;
@@ -48,4 +49,5 @@ public class PseudoQueue<T> {
         return dequeueVal;
     }
 }
+
 ```
