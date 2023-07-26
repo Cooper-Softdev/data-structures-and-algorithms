@@ -23,37 +23,28 @@ with the size of the input. The overall space complexity of the AnimalShelter cl
 ## Solution Code
 
 ``` Java
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class AnimalShelter {
-    private Queue<String> dogs;
-    private Queue<String> cats;
+    private Queue<Dog> dogs = new LinkedList<>();
+    private Queue<Cat> cats = new LinkedList<>();
 
-    public AnimalShelter() {
-        dogs = new LinkedList<>();
-        cats = new LinkedList<>();
-    }
-
-    public void enqueue(String animal, String name) {
-        if (animal.equalsIgnoreCase("dog")) {
-            dogs.add(name);
-        } else if (animal.equalsIgnoreCase("cat")) {
-            cats.add(name);
+    public void enqueue(Animal animal) {
+        if (animal instanceof Dog) {
+            dogs.add((Dog) animal);
+        } else if (animal instanceof Cat) {
+            cats.add((Cat) animal);
         } else {
-            throw new IllegalArgumentException("This animal shelter only accepts dogs and cats.");
+            throw new IllegalArgumentException("Animal should be a dog or a cat");
         }
     }
 
-    public String dequeue(String pref) {
-        if (pref.equalsIgnoreCase("dog")) {
-            return dogs.poll();
-        } else if (pref.equalsIgnoreCase("cat")) {
-            return cats.poll();
+    public Animal dequeue(String pref) {
+        if (pref.equals("dog")) {
+            return dogs.isEmpty() ? null : dogs.remove();
+        } else if (pref.equals("cat")) {
+            return cats.isEmpty() ? null : cats.remove();
         } else {
             return null;
         }
     }
 }
-
 ```
