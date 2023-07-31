@@ -21,3 +21,35 @@ Curly Brackets : {}
 Whenever we encounter an opening bracket, we push it onto a stack for comparison purposes. The key is to preserve the order of brackets. When we come across a closing bracket, it should correspond to the bracket at the top of the stack. Hence, we just need to compare (and subsequently remove) the top element of the stack with the current closing bracket. If there's a discrepancy, we can immediately return false as the brackets are not properly balanced. Ultimately, the stack should be empty if all brackets are correctly matched.
 
 The complexity of this function is O(N) for both space and time, as it scales linearly with the length of the input string. This is because each character in the string is processed once and may be stored on the stack.
+
+## Solution Code
+
+``` Java
+import java.util.Stack;
+
+public class BracketValidator {
+
+    public boolean validateBrackets(String input) {
+        Stack<Character> bracketStack = new Stack<>();
+
+        for (int i = 0; i < input.length(); i++) {
+            char currentCharacter = input.charAt(i);
+            if (currentCharacter == '(' || currentCharacter == '[' || currentCharacter == '{') {
+                bracketStack.push(currentCharacter);
+            } 
+            else if (currentCharacter == ')' || currentCharacter == ']' || currentCharacter == '}') {
+                if (bracketStack.isEmpty()) {
+                    return false;
+                }
+                char lastOpeningBracket = bracketStack.pop();
+                if ((currentCharacter == ')' && lastOpeningBracket != '(') ||
+                    (currentCharacter == ']' && lastOpeningBracket != '[') ||
+                    (currentCharacter == '}' && lastOpeningBracket != '{')) {
+                    return false;
+                }
+            }
+        }
+        return bracketStack.isEmpty();
+    }
+}
+```
