@@ -17,35 +17,28 @@ If the value is not divisible by 3 or 5, turn the number into a String.
 
 # Approach & Efficiency 
 
-I set up a helper function that determines the output value based on an input integer complying with the fizz buzz rules.  
-I also create a function that returns a node and is
-passed in a root node.  This function creates a new string node and then recursively calls itself for all of its children nodes.  
-What will be returned is the root of the modified tree.
-
-This modified tree will be O(n) for space because it is the same size as the input tree.  The function will also be called once 
-for each node so it will be O(n) for time as well.
+Write a function that computes the FizzBuzz value for a given integer. Additionally, a primary function that takes in the root of the tree and returns a new tree node. This function constructs a new string node and then recursively processes all child nodes of the current node. The end result is the root of the transformed tree.
 
 # Solution
 ```java
-  public static KaryNode<String> fizzBuzzTree(KaryNode<Integer> root){
-    if (root == null) {return null;}
-    KaryNode<String> newNode = new KaryNode<>(getFizzBuzzValue(root.getValue()));
-    for (KaryNode<Integer> child : root.children) {
-      newNode.children.add(fizzBuzzTree(child));
+public static KaryNode<String> transformToFizzBuzzTree(KaryNode<Integer> rootNode){
+    if (rootNode == null) {return null;}
+    KaryNode<String> transformedNode = new KaryNode<>(computeFizzBuzzEquivalent(rootNode.getValue()));
+    for (KaryNode<Integer> individualChild : rootNode.children) {
+      transformedNode.children.add(transformToFizzBuzzTree(individualChild));
     }
-    return newNode;
-  }
+    return transformedNode;
+}
 
-  public static String getFizzBuzzValue(int value) {
-    if (value % 3 == 0 && value % 5 == 0) {
+public static String computeFizzBuzzEquivalent(int number) {
+    if (number % 3 == 0 && number % 5 == 0) {
       return "FizzBuzz";
-    } else if (value % 3 == 0) {
+    } else if (number % 3 == 0) {
       return "Fizz";
-    } else if (value % 5 == 0) {
+    } else if (number % 5 == 0) {
       return "Buzz";
     } else {
-      return String.valueOf(value);
+      return String.valueOf(number);
     }
-  }
-
-  ```
+}
+```
