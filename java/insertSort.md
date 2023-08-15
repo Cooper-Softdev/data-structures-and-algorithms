@@ -14,9 +14,9 @@ The following will show the sorting algorithm broken down into steps, starting f
 -  Insert: This function just inserts a value into it's correct position in the array to be sorted.
 -  InsertionSort: This function sorts the input array (dealt hand) by repeatedly calling the "Insert" function until it sees that all elements (cards) are in the correct order. It knows this because we will increment a counter that will stop the algorithm once it reaches the last element/index within the array.
 
-Technically I think the PseudoCode may be wrong in that it doesn't have the logic for placing the next value in the input array into the correct position within the sorted array, the given PseudoCode does not know to insert a larger or smaller number in the correct place, the *WHILE* loop in the *Insert* function only checks if the value is less than the current element in the sorted array. This means that the value will always be inserted to the right of the current element, even if the value is larger than the current element.. So a fixed version will be after the initial input array.
+Technically I think the PseudoCode may be wrong in that it doesn't have the logic for placing the next value in the input array into the correct position within the sorted array, the given PseudoCode does not know to insert a larger or smaller number in the correct place, the ``WHILE`` loop in the ``Insert`` function only checks if the value is less than the current element in the sorted array. This means that the value will always be inserted to the right of the current element, even if the value to insert is less than the current element.. So a fixed version will be after the initial input array.
 
-``` Pseudo Code
+``` Wrong Pseudo Code
 Insert(int[] sorted, int value)
   initialize i to 0
   WHILE value > sorted[i]
@@ -36,54 +36,35 @@ InsertionSort(int[] input)
   return sorted
 ```
 
-Corrected versions of the PseudoCode
+Corrected version of the PseudoCode with easier to follow variable names because I'm not too smart.
 
-The first iterates the WHILE from the end of the array.
+``` Correct Pseudo Code
+InsertIntoSortedArray(sortedArray, newValue)
+  initialize currentPosition to sortedArray.length - 1
+  WHILE currentPosition >= 0 AND newValue < sortedArray[currentPosition]
+    set sortedArray[currentPosition + 1] to sortedArray[currentPosition]
+    decrement currentPosition
+  set sortedArray[currentPosition + 1] to newValue
 
-``` Pseudo Code
-Insert(int[] sorted, int value)
-  initialize i to sorted.length - 1
-  WHILE i >= 0 AND value < sorted[i]
-    set sorted[i + 1] to sorted[i]
-    set i to i - 1
-  set sorted[i + 1] to value
-
-InsertionSort(int[] input)
-  LET sorted = New Empty Array
-  sorted[0] = input[0]
-  FOR i from 1 up to input.length - 1
-    Insert(sorted, input[i])
-  return sorted
+InsertionSortAlgorithm(inputArray)
+  LET newArray = New Empty Array of size inputArray.length
+  newArray[0] = inputArray[0]
+  FOR index from 1 up to inputArray.length - 1
+    InsertIntoSortedArray(newArray, inputArray[index])
+  return newArray
 ```
 
-The second here starts the WHILE loop at the beginning of the aray.
+### PseudoCode - Step by Step
 
-``` Pseudo Code
-Insert(int[] sorted, int value)
-  initialize i to 0
-  WHILE value > sorted[i]
-    set i to i + 1
-  append value to sorted
-  WHILE i > 0
-    set temp to sorted[i - 1]
-    set sorted[i - 1] to value
-    set value to temp
-    set i to i - 1
+1. The `InsertIntoSortedArray` function starts by setting the `currentPosition` variable to the last index of the `sortedArray`. This is the position where the new value will be inserted.
+2. The `WHILE` loop checks if the new value is less than the current element in the `sortedArray` and if the `currentPosition` is still within the bounds of the array.
+3. If the new value is less than the current element, the current element is shifted to the next position in the `sortedArray`. This is done by assigning the value of the current element to the element at `currentPosition + 1`.
+4. The `currentPosition` variable is then decremented to compare the new value with the previous element in the `sortedArray`.
+5. This process continues until the correct position for the new value is found or the start of the `sortedArray` is reached. If the correct position is found, the new value is inserted into the `sortedArray` at that position.
+6. The `InsertionSortAlgorithm` function initializes the `newArray` with the first element of the `inputArray`. This is the first element in the sorted array.
+7. The `InsertionSortAlgorithm` function then iterates over the rest of the `inputArray` and calls the `InsertIntoSortedArray` function for each element. This ensures that each element in the `inputArray` is inserted into the `newArray` in the correct position.
+8. Once all elements from the `inputArray` are processed, the `newArray` is returned as the sorted array.
 
-InsertionSort(int[] input)
-  LET sorted = New Empty Array
-  sorted[0] = input[0]
-  FOR i from 1 up to input.length
-    Insert(sorted, input[i])
-  return sorted
-```
-### Step by Step of the corrected Pseudo Code
-
-1. The Insert function starts at the end of the sorted array.
-2. The WHILE loop checks if the value is less than the current element in the sorted array.
-3. If the value is less than the current element, the value is shifted to the right one position.
-4. The WHILE loop terminates if the value is greater than or equal to the current element.
-4. The value is inserted at the current position in the sorted array.
 
 ### Step by Step
 
