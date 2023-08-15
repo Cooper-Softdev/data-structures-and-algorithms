@@ -36,8 +36,9 @@ InsertionSort(int[] input)
   return sorted
 ```
 
-Corrected version of the PseudoCode
+Corrected versions of the PseudoCode
 
+The first iterates the WHILE from the end of the array.
 ``` Pseudo Code
 Insert(int[] sorted, int value)
   initialize i to sorted.length - 1
@@ -50,6 +51,28 @@ InsertionSort(int[] input)
   LET sorted = New Empty Array
   sorted[0] = input[0]
   FOR i from 1 up to input.length - 1
+    Insert(sorted, input[i])
+  return sorted
+```
+
+The second here starts the WHILE loop at the beginning of the aray.
+
+``` Pseudo Code
+Insert(int[] sorted, int value)
+  initialize i to 0
+  WHILE value > sorted[i]
+    set i to i + 1
+  append value to sorted
+  WHILE i > 0
+    set temp to sorted[i - 1]
+    set sorted[i - 1] to value
+    set value to temp
+    set i to i - 1
+
+InsertionSort(int[] input)
+  LET sorted = New Empty Array
+  sorted[0] = input[0]
+  FOR i from 1 up to input.length
     Insert(sorted, input[i])
   return sorted
 ```
