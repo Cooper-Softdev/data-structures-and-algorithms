@@ -76,6 +76,13 @@ InsertionSort(int[] input)
     Insert(sorted, input[i])
   return sorted
 ```
+### Step by Step of the corrected Pseudo Code
+
+1. The Insert function starts at the end of the sorted array.
+2. The WHILE loop checks if the value is less than the current element in the sorted array.
+3. If the value is less than the current element, the value is shifted to the right one position.
+4. The WHILE loop terminates if the value is greater than or equal to the current element.
+4. The value is inserted at the current position in the sorted array.
 
 ### Step by Step
 
