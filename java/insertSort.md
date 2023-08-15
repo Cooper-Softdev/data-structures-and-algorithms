@@ -81,14 +81,6 @@ InsertionSort(int[] input)
 ```Java
 public class InsertionSort {
 
-    public static void main(String[] args) {
-        int[] sampleArray = {8, 4, 23, 42, 16, 15};
-        int[] sortedArray = insertionSort(sampleArray);
-        for (int num : sortedArray) {
-            System.out.print(num + " ");
-        }
-    }
-
     public static int[] insertionSort(int[] input) {
         int[] sorted = new int[input.length];
         sorted[0] = input[0];
