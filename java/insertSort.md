@@ -14,7 +14,7 @@ The following will show the sorting algorithm broken down into steps, starting f
 -  Insert: This function just inserts a value into it's correct position in the array to be sorted.
 -  InsertionSort: This function sorts the input array (dealt hand) by repeatedly calling the "Insert" function until it sees that all elements (cards) are in the correct order. It knows this because we will increment a counter that will stop the algorithm once it reaches the last element/index within the array.
 
-Technically I think the PseudoCode may be wrong in that it doesn't have the logic for placing the next value in the input array into the correct position within the sorted array. So a fixed verison will be after the initial input array.
+Technically I think the PseudoCode may be wrong in that it doesn't have the logic for placing the next value in the input array into the correct position within the sorted array. So a fixed version will be after the initial input array.
 
 ``` Pseudo Code
 Insert(int[] sorted, int value)
